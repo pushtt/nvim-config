@@ -30,11 +30,6 @@ return {
             "b0o/SchemaStore.nvim",
         },
         config = function()
-            -- Don't do LSP stuff if we're in Obsidian Edit mode
-            if vim.g.obsidian then
-                return
-            end
-
             local capabilities = nil
             if pcall(require, "cmp_nvim_lsp") then
                 capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -61,6 +56,11 @@ return {
                 glsl_analyzer = true,
                 lua_ls = {
                     cmd = { "lua-language-server" },
+                    settings = {
+                        Lua = {
+                            diagnostics = { disable = { 'missing-fields' } }
+                        }
+                    }
                     -- server_capabilities = {
                         --   semanticTokensProvider = vim.NIL,
                         -- },
@@ -137,10 +137,8 @@ return {
 
                 require("mason").setup()
                 local ensure_installed = {
-                    "stylua",
-                    "lua_ls",
-                    "delve",
-                    -- "tailwind-language-server",
+                    "pyright",
+                    "gopls"
                 }
 
                 vim.list_extend(ensure_installed, servers_to_install)
