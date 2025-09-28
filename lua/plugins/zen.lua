@@ -1,5 +1,4 @@
 return {
-    {
         "folke/zen-mode.nvim",
         config = function()
             vim.keymap.set("n", "<leader>zz", function()
@@ -9,30 +8,16 @@ return {
                     height = 0.9,
                     width = 0.8,
                     options = {
-                        number = false,
-                        relativenumber = false,
+                        number = true,
+                        relativenumber = true,
                         signcolumn = "no",
                         list = false,
                         cursorline = false,
                     },
                 },
             }
-
-            require("twilight").setup {
-                context = -1,
-                treesitter = true,
-            }
+            require("zen-mode").toggle()
+            ColorMyPencils()
         end)
     end
-},
-
-    {
-        "folke/twilight.nvim",
-        config = function()
-            require("twilight").setup {
-                context = -1,
-                treesitter = true,
-            }
-        end,
-    },
 }
