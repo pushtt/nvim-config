@@ -37,6 +37,7 @@ return {
 
             local servers = {
                 bashls = true,
+                sqlls = true,
                 gopls = {
                     manual_install = true,
                     settings = {

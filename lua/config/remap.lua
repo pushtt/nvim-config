@@ -39,5 +39,12 @@ end)
 vim.keymap.set(
     "n",
     "<leader>ee",
-    "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
+    "oif err != nil {<CR>}<Esc>O<Esc>"
+)
+
+-- Python
+vim.keymap.set(
+    "n",
+    "<leader>mm",
+    "oif __name__ == \"__main__\":<Esc>omain()<Esc>o<Esc>"
 )
