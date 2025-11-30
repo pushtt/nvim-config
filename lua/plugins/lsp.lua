@@ -82,6 +82,7 @@ return {
 				},
 
 				pyright = true,
+				pyrefly = true,
 				ruff = { manual_install = true },
 				-- mojo = { manual_install = true },
 
